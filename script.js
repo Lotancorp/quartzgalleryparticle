@@ -8,7 +8,9 @@ function escapeHTML(text) {
     div.textContent = text;
     return div.innerHTML;
 }
-
+document.addEventListener("DOMContentLoaded", function() {
+    // Kode JavaScript kamu di sini
+});
 // Fungsi untuk mengkonversi teks ke HTML tanpa mengubah line breaks
 function convertTextToHTML(text) {
     const escapedText = escapeHTML(text);
