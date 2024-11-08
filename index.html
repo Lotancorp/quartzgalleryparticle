@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Particle by Quartz Gallery</title>
+    <link rel="stylesheet" href="style.css"> <!-- Link ke file CSS -->
+</head>
+<body>
+    <header>
+        <h1>Particle by Quartz Gallery</h1>
+        <div class="theme-switch">
+            <label class="switch">
+                <input type="checkbox" id="themeToggle" onchange="toggleTheme()">
+                <span class="slider round"></span>
+            </label>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="top-row">
+            <!-- Gabungkan left-column dan middle-column menjadi left-middle-column -->
+            <div class="left-middle-column">
+                <div class="file-section">
+                    <input type="file" id="fileInput" accept=".ini" multiple>
+                    <button onclick="extractText()">Extract File</button>
+                </div>
+                <!-- Search Section dipindahkan di bawah File Section -->
+                <div class="search-section">
+                    <input type="text" id="searchInput" placeholder="Search text..." title="Cari Nomor Particle" aria-label="Search Text">
+                    <button onclick="searchText()">Search</button>
+                    <button onclick="clearSearch()">Clear Search</button>
+                </div>
+                <!-- Tombol SPT Editor -->
+                <div class="spt-editor-button">
+                    <button onclick="openSPTEditor()">SPT Editor</button>
+                </div>
+                
+            </div>
+            <div class="image-slider">
+                <div class="slides">
+                    <div class="slide">
+                        <a href="https://linktr.ee/quartzgallery" target="_blank">
+                            <img src="C:\Users\mtaufan\Documents\VBA_PROJECT\Project 3/Banner1.png" alt="Banner 1">
+                        </a>
+                    </div>
+                    <div class="slide">
+                        <a href="https://linktr.ee/quartzgallery" target="_blank">
+                            <img src="C:\Users\mtaufan\Documents\VBA_PROJECT\Project 3/Banner2.png" alt="Banner 2">
+                        </a>
+                    </div>
+                    <div class="slide">
+                        <a href="https://linktr.ee/quartzgallery" target="_blank">
+                            <img src="C:\Users\mtaufan\Documents\VBA_PROJECT\Project 3/Banner3.png" alt="Banner 3">
+                        </a>
+                    </div>
+                    <!-- Tambahkan slide tambahan sesuai kebutuhan -->
+                </div>
+                <!-- Navigasi Slider -->
+                <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+                <button class="next" onclick="moveSlide(1)">&#10095;</button>
+            </div>
+            
+
+        </div>
+
+        <!-- Bagian Output -->
+        <!-- Kontainer Tab -->
+        <div class="tab-container">
+            <!-- Tombol Tab -->
+            <div class="tab-buttons" id="tabButtons">
+                <!-- Tombol tab akan ditambahkan secara dinamis -->
+            </div>
+            <!-- Konten Tab -->
+            <div class="tab-content" id="tabContent">
+                <!-- Konten tab akan ditambahkan secara dinamis -->
+            </div>
+        </div>
+
+        <!-- Tambahkan Elemen Search Results -->
+        <div id="searchResults"></div>
+
+        <!-- Tombol Scroll -->
+        <div class="scroll-buttons">
+            <button id="scrollTopButton">TOP</button>
+            <button id="scrollBottomButton">DOWN</button>
+        </div>
+        
+        <div class="master-folder-input">
+            <label for="inputMasterFolder">Master Folder:</label>
+            <input type="text" id="inputMasterFolder" placeholder="Enter master folder..." title="Masukkan Folder Utama kamu. Secara Default : \QG\SPT\QGN">
+            <select id="predefinedFolderSelect">
+                <option value="">Select Folder Type</option>
+                <option value="ARMOR">ARMOR</option>
+                <option value="GLOVES">GLOVES</option>
+                <option value="JETPACK">JETPACK</option>
+                <option value="MASK">MASK</option>
+                <option value="NPC">NPC</option>
+                <option value="SETUP">SETUP</option>
+                <option value="SHIELD">SHIELD</option>
+                <option value="SIEGE">SIEGE</option>
+                <option value="UNIT">UNIT</option>
+                <option value="WEAPON">WEAPON</option>
+                <option value="WINDWEAPON">WINDWEAPON</option>
+            </select>
+            
+            <!-- Add the Reserve checkbox and textbox -->
+            <label for="reserveCheckbox">
+                <input type="checkbox" id="reserveCheckbox"> Reserve
+            </label>
+            <input type="text" id="reserveNumberInput" placeholder="Enter number..." disabled>
+            <!-- Name of Skin Input -->
+            <input type="text" id="nameOfSkinInput" placeholder="Name of Skin">
+            
+            <!-- Switch Edit Langsung -->
+            <label class="switch">
+                 <input type="checkbox" id="editDirectlySwitch">
+                <span class="slider round"></span>
+            </label>
+            <span>Edit Note</span>
+        </div>
+
+        <div class="bottom-row">
+            <div class="edit-section">
+                <button class="edit-popup-button" onclick="openEditPopup()">Particle Data</button>
+            </div>
+            <div class="data-input">
+                <label for="inputNomor">Nomor:</label>
+                <input type="text" id="inputNomor" title="Masukkan Nomor Particle">
+
+                <label for="inputLokasiFolder">Lokasi Folder:</label>
+                <input type="text" id="inputLokasiFolder" title="Masukkan Lokasi Custom Folder">
+
+                <label for="inputNamaSpt">Nama SPT:</label>
+                <input type="text" id="inputNamaSpt" title="Masukkan Nama SPTnya">
+
+                <button onclick="handleDataInput()">Submit Particle</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tombol-tombol di kiri bawah -->
+    <div class="bottom-left-buttons">
+        <button id="viewHistoryButton">View History</button>
+        <button id="undoButton">Undo</button> <!-- Tombol Undo ditambahkan di sini -->
+        <button id="saveButton">Save Data</button>
+    </div>
+
+    <!-- Memuat file JavaScript utama -->
+    <script src="script.js"></script>
+</body>
+</html>

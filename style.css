@@ -1,0 +1,676 @@
+/* Reset CSS dasar */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    padding: 20px;
+    background-color: #ffffff; /* Warna background terang */
+    color: #000000; /* Warna teks untuk tema terang */
+    transition: background-color 0.3s, color 0.3s; /* Animasi transisi */
+}
+
+h1 {
+    color: #000000; /* Warna teks judul untuk tema terang */
+    transition: color 0.3s; /* Animasi transisi untuk perubahan warna */
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* Menambahkan style untuk switch tema */
+.theme-switch {
+    margin-top: 10px; /* Naikkan posisi switch sedikit */
+}
+
+/* Style untuk switch */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 25px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 25px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 4px;
+    bottom: 3px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #007bff;
+}
+
+input:checked + .slider:before {
+    transform: translateX(25px);
+}
+
+/* Layout utama untuk kontainer */
+.container {
+    display: flex;
+    flex-direction: column; /* Agar kolom berada dalam satu kolom */
+}
+
+/* Mengatur layout untuk bar atas */
+.top-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px; /* Jarak antara bar atas dan output */
+    gap: 20px;
+    align-items: flex-start; /* Memastikan semua item berada dalam satu baris dengan posisi awal */
+}
+
+/* Kolom yang akan menampung input dan output */
+.left-column, .middle-column, .right-column {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Mengatur jarak antar elemen dalam kolom untuk tampilan yang lebih baik */
+}
+
+/* Tampilan untuk tombol */
+button {
+    padding: 6px 10px; /* Mengurangi padding agar tombol tidak terlalu besar */
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border-radius: 4px;
+    text-align: center;
+    min-width: 80px; /* Menetapkan lebar minimum agar tombol konsisten dalam ukuran */
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Style untuk input teks dan select */
+input[type="text"], select {
+    padding: 6px 8px;
+    width: 100%;
+    max-width: 180px; /* Mengatur batas lebar input */
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-top : 5px;
+}
+
+/* Gaya khusus untuk tema gelap */
+.dark-theme {
+    background-color: #2c2c2c;
+    color: #f0f0f0;
+}
+
+.dark-theme h1 {
+    color: #f0f0f0; /* Warna teks judul untuk tema gelap */
+}
+
+.dark-theme #outputContainer {
+    background-color: #3a3a3a;
+    border-color: #555;
+    color: #f0f0f0;
+}
+
+.dark-theme button {
+    background-color: #555;
+    color: #f0f0f0;
+}
+
+.dark-theme button:hover {
+    background-color: #333;
+}
+
+.dark-theme input[type="text"],
+.dark-theme select {
+    background-color: #555;
+    color: #f0f0f0;
+    border-color: #777;
+}
+
+/* Warna sorotan untuk hasil pencarian */
+.highlight {
+    background-color: rgb(0, 255, 128);
+    /* Anda dapat menyesuaikan gaya sesuai keinginan */
+}
+
+/* Gaya untuk tombol Edit Popup agar lebih nyaman */
+.edit-popup-button {
+    margin-top: 20px;
+    margin-right: 10px;
+    padding: 8px 12px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.edit-popup-button:hover {
+    background-color: #218838;
+}
+
+/* Gaya untuk form input data */
+.bottom-row {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.data-input {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 10px;
+    align-items: center;
+    flex: 1;
+}
+
+.data-input label {
+    font-weight: bold;
+}
+
+.data-input input[type="text"] {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.data-input button {
+    background-color: #007bff;
+    color: white;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.data-input button:hover {
+    background-color: #0056b3;
+}
+
+/* Master Folder Input Styling */
+.master-folder-input {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    gap: 15px; /* Mengatur gap antar elemen dalam flex untuk memberi jarak lebih besar */
+}
+
+.master-folder-input label {
+    margin-right: 10px; /* Jarak antara label dan inputnya */
+    font-weight: bold;
+}
+
+.master-folder-input input[type="text"] {
+    padding: 5px;
+    font-size: 14px;
+    width: 200px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.master-folder-input select {
+    padding: 5px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Ensure all input areas are aligned properly */
+.top-row {
+    display: flex;
+    gap: 20px;
+}
+
+.left-column, .middle-column, .right-column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+/* Styling button to match previous buttons */
+button {
+    padding: 8px 16px;
+    font-size: 14px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Style untuk tombol scroll */
+.scroll-buttons {
+    position: fixed;
+    bottom: 20px; /* Jarak dari bawah layar */
+    right: 20px;  /* Jarak dari kanan layar */
+    z-index: 1000; /* Agar tombol berada di atas elemen lain */
+}
+
+.scroll-buttons button {
+    display: block;
+    margin: 5px 0;
+    padding: 8px 15px;
+    background-color: #28a745; /* Warna hijau */
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.scroll-buttons button:hover {
+    background-color: #218838; /* Warna hijau lebih gelap saat hover */
+}
+
+/* Style untuk elemen output */
+#output {
+    max-height: 400px;
+    overflow-y: auto;
+    white-space: pre-wrap;
+    border: 1px solid #ccc;
+    padding: 10px;
+    background-color: #f9f9f9; /* Warna latar belakang default */
+    color: #000; /* Warna teks default */
+}
+
+/* Style untuk mode gelap */
+body.dark-theme {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+body.dark-theme #output {
+    background-color: #1e1e1e; /* Warna latar belakang untuk mode gelap */
+    color: #ffffff; /* Warna teks untuk mode gelap */
+    border: 1px solid #333; /* Menyesuaikan warna border */
+}
+
+/* Style for the Reserve checkbox and input */
+.master-folder-input {
+    display: flex;
+    align-items: justify;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+#reserveNumberInput {
+    width: 100px;
+    padding: 5px;
+}
+
+#reserveNumberInput.valid {
+    background-color: lightgreen;
+}
+
+#reserveNumberInput.invalid {
+    background-color: pink;
+}
+
+/* Gaya untuk tombol di kiri bawah */
+.bottom-left-buttons {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 1000;
+    display: flex; /* Membuat tombol sejajar dalam satu baris */
+    gap: 10px; /* Menambahkan jarak antar tombol */
+}
+
+.bottom-left-buttons button {
+    padding: 8px 15px;
+    background-color: #007bff; /* Warna biru */
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.bottom-left-buttons button:hover {
+    background-color: #0056b3; /* Biru lebih gelap saat hover */
+}
+
+/* Gaya untuk highlight */
+.highlight {
+    background-color: rgb(0, 255, 128);
+    /* Anda dapat menyesuaikan gaya sesuai keinginan */
+}
+
+/* Gaya untuk tombol tab */
+.tab-button {
+    position: relative; /* Untuk posisi absolute pada tombol close */
+    padding: 10px 20px;
+    margin-right: 5px;
+    background-color: #007bff; /* Warna biru */
+    color: white; /* Warna teks putih untuk kontras */
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.tab-button:hover {
+    background-color: #0056b3; /* Biru lebih gelap saat hover */
+}
+
+.tab-button.active {
+    background-color: #0056b3; /* Biru lebih gelap untuk tab aktif */
+}
+
+/* Gaya untuk tombol close */
+.close-tab {
+    position: absolute;
+    top: 50%;
+    right: 5px;
+    transform: translateY(-50%);
+    color: white; /* Warna putih untuk kontras dengan tab biru */
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.close-tab:hover {
+    color: red; /* Warna merah saat di-hover */
+}
+
+/* Gaya untuk konten tab */
+.tab-pane {
+    display: none;
+    padding: 10px;
+    overflow-y: auto; /* Memungkinkan scroll vertikal */
+    max-height: 400px; /* Sesuaikan sesuai kebutuhan Anda */
+    border: 1px solid #ccc;
+    border-top: none;
+}
+
+.tab-pane.active {
+    display: block;
+}
+.tab-pane {
+    white-space: pre-wrap; /* Mempertahankan line breaks dan spasi */
+    /* Tambahkan properti lainnya sesuai kebutuhan */
+}
+
+/* Mengatur container left-middle-column untuk menampilkan file-section dan search-section dalam satu baris */
+.left-middle-column {
+    display: flex;
+    gap: 15px; /* Jarak antara file-section dan search-section */
+    align-items: center;
+}
+
+
+
+/* Styling tambahan untuk input dan tombol */
+input[type="file"] {
+    max-width: 150px; /* Mengatur lebar maksimum input file */
+}
+
+
+/* Navigasi Tombol */
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 10;
+    transition: background-color 0.3s;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+/* Responsive Gambar */
+@media (max-width: 768px) {
+    .prev, .next {
+        padding: 8px;
+    }
+}
+
+/* Image Slider Styling */
+.image-slider {
+    position: relative;
+    max-width: 65%; /* Menyesuaikan lebar slider dengan kontainer */
+    margin: auto;
+    overflow: hidden;
+    border-radius: 8px; /* Opsional: untuk sudut membulat */
+}
+
+.slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out; /* Animasi perpindahan slide */
+}
+
+.slide {
+    min-width: 100%;
+    box-sizing: border-box;
+}
+
+.slide img {
+    width: 100%;
+    height: auto; /* Menjaga proporsi gambar */
+    display: block;
+}
+
+/* Navigasi Tombol */
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0,0,0,0.5); /* Latar belakang semi-transparan */
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 10;
+    transition: background-color 0.3s;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8); /* Latar belakang lebih gelap saat hover */
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+/* Responsive Gambar */
+@media (max-width: 640px) {
+    .prev, .next {
+        padding: 8px; /* Mengurangi padding pada layar kecil */
+    }
+}
+
+/* Mengatur container left-middle-column untuk menampilkan file-section dan search-section secara vertikal */
+.left-middle-column {
+    display: flex;
+    flex-direction: column; /* Menata child secara vertikal */
+    gap: 15px; /* Jarak antara file-section dan search-section */
+    flex: 1; /* Membolehkan kolom untuk mengisi ruang yang tersedia */
+    min-width: 250px; /* Menentukan minimal lebar kolom untuk mencegah terlalu sempit */
+}
+
+/* File Section */
+.file-section {
+    display: flex;
+    align-items: center;
+    gap: 130px; /* Jarak antara input file dan tombol Extract File */
+}
+
+/* Search Section */
+.search-section {
+    display :flexbox ;
+    align-items : center ;
+    gap: 1px; /* Jarak antara kotak pencarian dan tombol Search/Clear Search */
+    
+   
+}
+
+/* Gaya untuk tombol SPT Editor */
+.spt-editor-button {
+    margin-top: 40px; /* Memberikan jarak atas agar tidak terlalu rapat dengan Search Section */
+}
+
+.spt-editor-button button {
+    padding: 18px 32px;
+    font-size: 14px;
+    cursor: pointer;
+    background-color: #17a2b8; /* Warna biru kehijauan */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.spt-editor-button button:hover {
+    background-color: #138496; /* Warna lebih gelap saat hover */
+}
+.spt-editor-button {
+    margin: 20px 0; /* Sesuaikan margin sesuai kebutuhan */
+    text-align: center; /* Center align tombol */
+}
+
+.spt-editor-button button {
+    padding: 10px 20px;
+    background-color: #17a2b8;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 16px;
+}
+
+.spt-editor-button button:hover {
+    background-color: #138496;
+}
+/* Styling untuk Switch */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+    margin-left: 10px; /* Jarak antara input dan switch */
+  }
+  
+  .switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 24px;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+  }
+  
+  input:checked + .slider {
+    background-color: #2196F3;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+  
+  input:checked + .slider:before {
+    transform: translateX(26px);
+  }
+  
+  /* Tambahkan label "Edit Langsung" */
+  .name-of-skin-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+  }
+  
+  .name-of-skin-container label {
+      flex: 0 0 150px; /* Sesuaikan lebar label jika diperlukan */
+  }
+  
+  .name-of-skin-container input {
+      flex: 1;
+  }
+  
+  .name-of-skin-container span {
+      margin-left: 5px;
+      font-size: 14px;
+  }
+  
